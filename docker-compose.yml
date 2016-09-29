@@ -1,0 +1,12 @@
+fibonacci:
+    image: fibonacci
+
+nginx:
+    image: nginx
+    ports:
+        - "8081:8081"
+    volumes:
+        - ./conf.d/nginx.conf:/etc/nginx/conf.d/fibonacci.conf
+        - ./conf.d/uwsgi_params:/etc/nginx/uwsgi_params
+    links:
+        - fibonacci
